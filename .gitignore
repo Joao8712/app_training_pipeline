@@ -1,0 +1,23 @@
+# data and generated artifacts
+data/
+outputs/
+runs/
+*.zip
+*.tar
+*.tar.gz
+*.h5
+*.keras
+*.ckpt
+*.tfrecord
+*.csv
+
+# keep examples if needed
+!configs/*.yaml
+!README.md
+
+# python
+__pycache__/
+*.pyc
+.ipynb_checkpoints/
+.env
+.venv/

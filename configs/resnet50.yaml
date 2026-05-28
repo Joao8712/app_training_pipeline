@@ -1,0 +1,42 @@
+seed: 42
+data:
+  manifest: data/image_output/image_manifest.csv
+  image_root: data/image_output
+  image_size: 224
+  batch_size: 64
+  num_parallel_calls: AUTOTUNE
+  cache: false
+  shuffle_buffer: 4096
+  train_split_name: training
+  val_split_name: validation
+  test_split_name: test
+model:
+  architecture: resnet50
+  weights: imagenet
+  dropout: 0.3
+  dense_units: 256
+  output_activation: sigmoid
+training:
+  mixed_precision: true
+  loss: mae
+  frozen_epochs: 8
+  fine_tune_epochs: 12
+  learning_rate_frozen: 0.001
+  learning_rate_finetune: 1.0e-05
+  fine_tune_last_n_layers: 30
+  early_stopping_patience: 4
+  reduce_lr_patience: 2
+  monitor: val_mae
+  monitor_mode: min
+augmentation:
+  enabled: true
+  random_flip: horizontal
+  random_rotation: 0.03
+  random_zoom: 0.08
+  random_contrast: 0.08
+traits:
+- openness
+- conscientiousness
+- extraversion
+- agreeableness
+- neuroticism

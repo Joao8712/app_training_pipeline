@@ -1,0 +1,4 @@
+# Colab usually has TensorFlow preinstalled. Install only lightweight packages unless
+# you need to force a specific TensorFlow version.
+PyYAML>=6.0
+scikit-learn>=1.3
